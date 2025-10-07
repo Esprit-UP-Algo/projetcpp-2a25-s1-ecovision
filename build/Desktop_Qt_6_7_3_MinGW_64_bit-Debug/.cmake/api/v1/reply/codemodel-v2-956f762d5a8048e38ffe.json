@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-9a4f34481ca65227c67b.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "eco_vision",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "eco_vision::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-eco_vision-Debug-054954fb1af684de269e.json",
+					"name" : "eco_vision",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "eco_vision_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-eco_vision_autogen-Debug-7613125fac7f24390a07.json",
+					"name" : "eco_vision_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "eco_vision_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-eco_vision_autogen_timestamp_deps-Debug-3bbedc6f56d9f355cb1f.json",
+					"name" : "eco_vision_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug",
+		"source" : "C:/Users/abidi dhia/Documents/eco_vision"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}
