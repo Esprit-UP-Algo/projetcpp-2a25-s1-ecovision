@@ -6,809 +6,174 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1476</width>
-    <height>806</height>
+    <width>1200</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Ecovision - Tableau de Bord</string>
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QPushButton {
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;              
+    border: 1px solid rgba(255, 255, 255, 90);
+    background-color: #5cb4f2;        
+    background-repeat: no-repeat;
+    background-position: center;  
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    padding-left: 10px;                
+    padding-right: 10px;
+}
+
+QPushButton:hover {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0,
+                                stop:0 #5cb4f2, stop:1 #ffffff);
+    color: #2f85c9;
+}
+
+QPushButton:pressed {
+    background-color: #2f85c9;
+    color: white;
+    transform: scale(0.95);
+}
+</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QFrame" name="leftMenu">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>9</x>
-      <y>9</y>
-      <width>241</width>
-      <height>781</height>
+      <x>0</x>
+      <y>0</y>
+      <width>1201</width>
+      <height>801</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">
-QFrame {
-    background-color: #5CAFE3;
-    border-radius: 10px;
-    margin: 5px;
-}
-#btnEmploye, #btnReclammation, #btnlocaux, #btnresidance, #btnresources {
-    color: white;
-    background: transparent;
-    border: none;
-    font-size: 14px;
-    text-align: left;
-    padding: 8px 12px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-}
-#btnEmploye:hover, #btnReclammation:hover, #btnlocaux:hover, #btnresidance:hover, #btnresources:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-    border-radius: 8px;
-}
-#btnEmploye:pressed, #btnReclammation:pressed, #btnlocaux:pressed, #btnresidance:pressed, #btnresources:pressed {
-    background-color: rgba(255, 255, 255, 0.25);
-    transform: scale(0.96);
-}
-     </string>
-    </property>
-    <widget class="QPushButton" name="btnEmploye">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>270</y>
-       <width>197</width>
-       <height>52</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Gestion Employée</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="btnlocaux">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>380</y>
-       <width>197</width>
-       <height>52</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Gestion locaux</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="btnresources">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>480</y>
-       <width>197</width>
-       <height>52</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Gestion resources</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="btnReclammation">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>570</y>
-       <width>201</width>
-       <height>52</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Gestion reclammation</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="btnresidance">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>670</y>
-       <width>197</width>
-       <height>52</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Gestion Residance</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="image">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>10</y>
-       <width>311</width>
-       <height>221</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">
-QLabel {
-    background-color: transparent;
-    color: rgba(255, 255, 255, 180);
-    font-size: 16px;
-    border: none;
-}
-      </string>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QFrame" name="rightContent">
-    <property name="geometry">
-     <rect>
-      <x>250</x>
-      <y>30</y>
-      <width>1191</width>
-      <height>761</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">
-QFrame {
-    background-color: white;
-    border-radius: 10px;
-    margin: 5px;
-}
-QLabel {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-}
-     </string>
-    </property>
-    <widget class="QLabel" name="titleLabel">
-     <property name="geometry">
-      <rect>
-       <x>14</x>
-       <y>14</y>
-       <width>233</width>
-       <height>62</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">
-font-size: 24px;
-font-weight: bold;
-color: #2f85c9;
-padding: 10px;
-      </string>
-     </property>
-     <property name="text">
-      <string>Gestion Employée</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignmentFlag::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QTabWidget" name="CRUD_Stat">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>70</y>
-       <width>1061</width>
-       <height>681</height>
-      </rect>
-     </property>
-     <property name="currentIndex">
+    <layout class="QHBoxLayout" name="horizontalLayout" stretch="3,1">
+     <property name="spacing">
       <number>0</number>
      </property>
-     <widget class="QWidget" name="tabCRUD">
-      <attribute name="title">
-       <string>Inforamtions</string>
-      </attribute>
-      <widget class="QTableWidget" name="tableEmploye">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>10</y>
-         <width>541</width>
-         <height>631</height>
-        </rect>
+     <item>
+      <widget class="QFrame" name="SideBarFrame">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+         <horstretch>1</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
        </property>
-       <property name="rowCount">
-        <number>0</number>
+       <property name="maximumSize">
+        <size>
+         <width>200</width>
+         <height>16777215</height>
+        </size>
        </property>
-       <property name="columnCount">
-        <number>7</number>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(92, 181, 242);
+</string>
        </property>
-       <column>
-        <property name="text">
-         <string>CIN</string>
+       <property name="frameShape">
+        <enum>QFrame::Shape::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Shadow::Raised</enum>
+       </property>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>110</y>
+          <width>132</width>
+          <height>236</height>
+         </rect>
         </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Nom</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Prénom</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Adresse</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Téléphone</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Metier</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>presence</string>
-        </property>
-       </column>
+        <layout class="QVBoxLayout" name="sideBarBtns">
+         <property name="spacing">
+          <number>6</number>
+         </property>
+         <property name="leftMargin">
+          <number>5</number>
+         </property>
+         <property name="rightMargin">
+          <number>5</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="pushButton">
+           <property name="text">
+            <string>Gestion Employés</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_2">
+           <property name="text">
+            <string>Gestion Locaux</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_3">
+           <property name="text">
+            <string>Gestion Ressources</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_4">
+           <property name="text">
+            <string>Gestion Reclamations</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_5">
+           <property name="text">
+            <string>Gestion Residents</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
       </widget>
-      <widget class="QPushButton" name="btnAjouter">
-       <property name="geometry">
-        <rect>
-         <x>550</x>
-         <y>320</y>
-         <width>481</width>
-         <height>36</height>
-        </rect>
+     </item>
+     <item>
+      <widget class="QFrame" name="MainContentFrame">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>1</horstretch>
+         <verstretch>1</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">/* État normal (non sélectionné) : blanc */
-QPushButton {
-    background-color: #ffffff; 
-    color: #3C9ED9; /* texte bleu ciel */
-    border: 1px solid rgba(99, 184, 227, 0.9);
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-/* Survol en état non sélectionné */
-QPushButton:hover {
-    background-color: #F2F9FE; /* léger bleu très clair */
-}
-
-/* Appuyé (momentané) */
-QPushButton:pressed {
-    background-color: #5CAFE3;
-    color: white;
-}
-
-/* État sélectionné (si setCheckable(true)) */
-QPushButton:checked {
-    background-color: #87CEEB; /* bleu ciel */
-    color: white;
-    border-color: #5CAFE3;
-}
-
-/* Survol quand déjà sélectionné */
-QPushButton:checked:hover {
-    background-color: #5CAFE3; /* un peu plus foncé au survol */
-    color: white;
-}
-</string>
+        <string notr="true">background-color: rgb(255, 255, 255)</string>
        </property>
-       <property name="text">
-        <string>Ajouter</string>
+       <property name="frameShape">
+        <enum>QFrame::Shape::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Shadow::Raised</enum>
        </property>
       </widget>
-      <widget class="QPushButton" name="btnModifier">
-       <property name="geometry">
-        <rect>
-         <x>640</x>
-         <y>370</y>
-         <width>100</width>
-         <height>36</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">/* État normal (non sélectionné) : blanc */
-QPushButton {
-    background-color: #ffffff; 
-    color: #3C9ED9; /* texte bleu ciel */
-    border: 1px solid rgba(99, 184, 227, 0.9);
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-/* Survol en état non sélectionné */
-QPushButton:hover {
-    background-color: #F2F9FE; /* léger bleu très clair */
-}
-
-/* Appuyé (momentané) */
-QPushButton:pressed {
-    background-color: #5CAFE3;
-    color: white;
-}
-
-/* État sélectionné (si setCheckable(true)) */
-QPushButton:checked {
-    background-color: #87CEEB; /* bleu ciel */
-    color: white;
-    border-color: #5CAFE3;
-}
-
-/* Survol quand déjà sélectionné */
-QPushButton:checked:hover {
-    background-color: #5CAFE3; /* un peu plus foncé au survol */
-    color: white;
-}
-</string>
-       </property>
-       <property name="text">
-        <string>Modifier</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="btnSupprimer">
-       <property name="geometry">
-        <rect>
-         <x>740</x>
-         <y>370</y>
-         <width>100</width>
-         <height>36</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">/* État normal (non sélectionné) : blanc */
-QPushButton {
-    background-color: #ffffff; 
-    color: #3C9ED9; /* texte bleu ciel */
-    border: 1px solid rgba(99, 184, 227, 0.9);
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-/* Survol en état non sélectionné */
-QPushButton:hover {
-    background-color: #F2F9FE; /* léger bleu très clair */
-}
-
-/* Appuyé (momentané) */
-QPushButton:pressed {
-    background-color: #5CAFE3;
-    color: white;
-}
-
-/* État sélectionné (si setCheckable(true)) */
-QPushButton:checked {
-    background-color: #87CEEB; /* bleu ciel */
-    color: white;
-    border-color: #5CAFE3;
-}
-
-/* Survol quand déjà sélectionné */
-QPushButton:checked:hover {
-    background-color: #5CAFE3; /* un peu plus foncé au survol */
-    color: white;
-}
-</string>
-       </property>
-       <property name="text">
-        <string>Supprimer</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="btnChercher">
-       <property name="geometry">
-        <rect>
-         <x>540</x>
-         <y>370</y>
-         <width>100</width>
-         <height>36</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">/* État normal (non sélectionné) : blanc */
-QPushButton {
-    background-color: #ffffff; 
-    color: #3C9ED9; /* texte bleu ciel */
-    border: 1px solid rgba(99, 184, 227, 0.9);
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-/* Survol en état non sélectionné */
-QPushButton:hover {
-    background-color: #F2F9FE; /* léger bleu très clair */
-}
-
-/* Appuyé (momentané) */
-QPushButton:pressed {
-    background-color: #5CAFE3;
-    color: white;
-}
-
-/* État sélectionné (si setCheckable(true)) */
-QPushButton:checked {
-    background-color: #87CEEB; /* bleu ciel */
-    color: white;
-    border-color: #5CAFE3;
-}
-
-/* Survol quand déjà sélectionné */
-QPushButton:checked:hover {
-    background-color: #5CAFE3; /* un peu plus foncé au survol */
-    color: white;
-}
-</string>
-       </property>
-       <property name="text">
-        <string>Chercher</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="nom">
-       <property name="geometry">
-        <rect>
-         <x>550</x>
-         <y>30</y>
-         <width>111</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>nom:</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="telephone_2">
-       <property name="geometry">
-        <rect>
-         <x>680</x>
-         <y>190</y>
-         <width>331</width>
-         <height>26</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLabel" name="adresse">
-       <property name="geometry">
-        <rect>
-         <x>550</x>
-         <y>150</y>
-         <width>121</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>adresse:</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="cin">
-       <property name="geometry">
-        <rect>
-         <x>550</x>
-         <y>110</y>
-         <width>111</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>cin:</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="telephone">
-       <property name="geometry">
-        <rect>
-         <x>550</x>
-         <y>190</y>
-         <width>121</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>telephone:</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="prenom">
-       <property name="geometry">
-        <rect>
-         <x>550</x>
-         <y>70</y>
-         <width>111</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>prenom:</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="metier">
-       <property name="geometry">
-        <rect>
-         <x>550</x>
-         <y>230</y>
-         <width>121</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>metier:</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="cin_2">
-       <property name="geometry">
-        <rect>
-         <x>680</x>
-         <y>110</y>
-         <width>331</width>
-         <height>26</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="adresse_2">
-       <property name="geometry">
-        <rect>
-         <x>680</x>
-         <y>150</y>
-         <width>331</width>
-         <height>26</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="prenom_2">
-       <property name="geometry">
-        <rect>
-         <x>680</x>
-         <y>70</y>
-         <width>331</width>
-         <height>26</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="nom_2">
-       <property name="geometry">
-        <rect>
-         <x>680</x>
-         <y>30</y>
-         <width>331</width>
-         <height>26</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="metier_2">
-       <property name="geometry">
-        <rect>
-         <x>680</x>
-         <y>230</y>
-         <width>331</width>
-         <height>26</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="btnpdf">
-       <property name="geometry">
-        <rect>
-         <x>840</x>
-         <y>370</y>
-         <width>100</width>
-         <height>36</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">/* État normal (non sélectionné) : blanc */
-QPushButton {
-    background-color: #ffffff; 
-    color: #3C9ED9; /* texte bleu ciel */
-    border: 1px solid rgba(99, 184, 227, 0.9);
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-/* Survol en état non sélectionné */
-QPushButton:hover {
-    background-color: #F2F9FE; /* léger bleu très clair */
-}
-
-/* Appuyé (momentané) */
-QPushButton:pressed {
-    background-color: #5CAFE3;
-    color: white;
-}
-
-/* État sélectionné (si setCheckable(true)) */
-QPushButton:checked {
-    background-color: #87CEEB; /* bleu ciel */
-    color: white;
-    border-color: #5CAFE3;
-}
-
-/* Survol quand déjà sélectionné */
-QPushButton:checked:hover {
-    background-color: #5CAFE3; /* un peu plus foncé au survol */
-    color: white;
-}
-</string>
-       </property>
-       <property name="text">
-        <string>pdf</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="btntrier">
-       <property name="geometry">
-        <rect>
-         <x>940</x>
-         <y>370</y>
-         <width>100</width>
-         <height>36</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">/* État normal (non sélectionné) : blanc */
-QPushButton {
-    background-color: #ffffff; 
-    color: #3C9ED9; /* texte bleu ciel */
-    border: 1px solid rgba(99, 184, 227, 0.9);
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-/* Survol en état non sélectionné */
-QPushButton:hover {
-    background-color: #F2F9FE; /* léger bleu très clair */
-}
-
-/* Appuyé (momentané) */
-QPushButton:pressed {
-    background-color: #5CAFE3;
-    color: white;
-}
-
-/* État sélectionné (si setCheckable(true)) */
-QPushButton:checked {
-    background-color: #87CEEB; /* bleu ciel */
-    color: white;
-    border-color: #5CAFE3;
-}
-
-/* Survol quand déjà sélectionné */
-QPushButton:checked:hover {
-    background-color: #5CAFE3; /* un peu plus foncé au survol */
-    color: white;
-}
-</string>
-       </property>
-       <property name="text">
-        <string>trier</string>
-       </property>
-      </widget>
-      <widget class="QWidget" name="photo" native="true">
-       <property name="geometry">
-        <rect>
-         <x>800</x>
-         <y>430</y>
-         <width>221</width>
-         <height>191</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton">
-       <property name="geometry">
-        <rect>
-         <x>640</x>
-         <y>540</y>
-         <width>141</width>
-         <height>29</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">/* État normal (non sélectionné) : blanc */
-QPushButton {
-    background-color: #ffffff; 
-    color: #3C9ED9; /* texte bleu ciel */
-    border: 1px solid rgba(99, 184, 227, 0.9);
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-/* Survol en état non sélectionné */
-QPushButton:hover {
-    background-color: #F2F9FE; /* léger bleu très clair */
-}
-
-/* Appuyé (momentané) */
-QPushButton:pressed {
-    background-color: #5CAFE3;
-    color: white;
-}
-
-/* État sélectionné (si setCheckable(true)) */
-QPushButton:checked {
-    background-color: #87CEEB; /* bleu ciel */
-    color: white;
-    border-color: #5CAFE3;
-}
-
-/* Survol quand déjà sélectionné */
-QPushButton:checked:hover {
-    background-color: #5CAFE3; /* un peu plus foncé au survol */
-    color: white;
-}
-</string>
-       </property>
-       <property name="text">
-        <string>Reconnaissance</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="ajouterphoto">
-       <property name="geometry">
-        <rect>
-         <x>640</x>
-         <y>470</y>
-         <width>141</width>
-         <height>29</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">/* État normal (non sélectionné) : blanc */
-QPushButton {
-    background-color: #ffffff; 
-    color: #3C9ED9; /* texte bleu ciel */
-    border: 1px solid rgba(99, 184, 227, 0.9);
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-/* Survol en état non sélectionné */
-QPushButton:hover {
-    background-color: #F2F9FE; /* léger bleu très clair */
-}
-
-/* Appuyé (momentané) */
-QPushButton:pressed {
-    background-color: #5CAFE3;
-    color: white;
-}
-
-/* État sélectionné (si setCheckable(true)) */
-QPushButton:checked {
-    background-color: #87CEEB; /* bleu ciel */
-    color: white;
-    border-color: #5CAFE3;
-}
-
-/* Survol quand déjà sélectionné */
-QPushButton:checked:hover {
-    background-color: #5CAFE3; /* un peu plus foncé au survol */
-    color: white;
-}
-</string>
-       </property>
-       <property name="text">
-        <string>Ajouter Photo</string>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QWidget" name="tabStat">
-      <attribute name="title">
-       <string>Statistiques</string>
-      </attribute>
-      <widget class="QChartView" name="stat" native="true">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>1041</width>
-         <height>431</height>
-        </rect>
-       </property>
-      </widget>
-     </widget>
-    </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>QChartView</class>
-   <extends>QWidget</extends>
-   <header>qchartview.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>
