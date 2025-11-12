@@ -512,6 +512,7 @@ public:
         btnresources->setText(QCoreApplication::translate("MainWindow", "Gestion resources", nullptr));
         btnReclammation->setText(QCoreApplication::translate("MainWindow", "Gestion reclammation", nullptr));
         btnresidance->setText(QCoreApplication::translate("MainWindow", "Gestion Residance", nullptr));
+        image->setText(QString());
         titleLabel->setText(QCoreApplication::translate("MainWindow", "Gestion Employ\303\251e", nullptr));
         btnAjouter->setText(QCoreApplication::translate("MainWindow", "Ajouter", nullptr));
         btnModifier->setText(QCoreApplication::translate("MainWindow", "Modifier", nullptr));
