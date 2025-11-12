@@ -1,85 +1,67 @@
 # ninja log v6
-51	338	7809366622265725	eco_vision_autogen/timestamp	a07454f46fa85f43
-51	338	7809366622265725	eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
-51	338	7809366622265725	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/timestamp	a07454f46fa85f43
-339	3681	7809366625187148	CMakeFiles/eco_vision.dir/mainwindow.cpp.obj	ba43098aa105fb95
-51	338	7809366622265725	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
-6139	10141	7803760834691600	CMakeFiles/eco_vision.dir/main.cpp.obj	c476418fba58c55
-6133	10121	7803760834651160	CMakeFiles/eco_vision.dir/eco_vision_autogen/mocs_compilation.cpp.obj	fdea4827ee78d035
-3681	3967	7809366658608093	eco_vision.exe	c6260c837de07efa
-47	1201	7809374676452367	build.ninja	f767f269f55e08a7
-71	375	7809374678537241	eco_vision_autogen/timestamp	a07454f46fa85f43
-71	375	7809374678537241	eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
-71	375	7809374678537241	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/timestamp	a07454f46fa85f43
-71	375	7809374678537241	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
+109	1305	7846327412392933	eco_vision_autogen/timestamp	a07454f46fa85f43
+109	1305	7846327412392933	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/timestamp	a07454f46fa85f43
+350	5524	7846111777644320	CMakeFiles/eco_vision.dir/mainwindow.cpp.obj	3b219e36de781808
+109	1305	7846327412392933	eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
+1321	5511	7846327414061404	CMakeFiles/eco_vision.dir/main.cpp.obj	da439c1cddb20513
+109	1305	7846327412392933	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
+1314	5500	7846327413991396	CMakeFiles/eco_vision.dir/eco_vision_autogen/mocs_compilation.cpp.obj	a9da6a5933ac4875
+5525	7007	7846111829373138	eco_vision.exe	b6da4a4af62693a
+13	4976	7840075558653123	build.ninja	f767f269f55e08a7
 376	500	7809374682715306	eco_vision_autogen/EWIEGA46WW/qrc_image.cpp	623dbd44a2711a5d
 376	500	7809374682715306	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/EWIEGA46WW/qrc_image.cpp	623dbd44a2711a5d
-507	645	7809374682940981	CMakeFiles/eco_vision.dir/eco_vision_autogen/EWIEGA46WW/qrc_image.cpp.obj	d0baaab28da585c9
-500	3977	7809374682879539	CMakeFiles/eco_vision.dir/mainwindow.cpp.obj	ba43098aa105fb95
-3978	4299	7809374717644699	eco_vision.exe	30812becbec0e431
-21	296	7809385127708341	eco_vision_autogen/timestamp	a07454f46fa85f43
-21	296	7809385127708341	eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
-21	296	7809385127708341	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/timestamp	a07454f46fa85f43
-21	296	7809385127708341	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
-297	3557	7809385130506878	CMakeFiles/eco_vision.dir/mainwindow.cpp.obj	ba43098aa105fb95
-3557	3852	7809385163104799	eco_vision.exe	30812becbec0e431
-48	327	7809386149824943	eco_vision_autogen/timestamp	a07454f46fa85f43
-48	327	7809386149824943	eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
-48	327	7809386149824943	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/timestamp	a07454f46fa85f43
-48	327	7809386149824943	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
-329	3521	7809386152652756	CMakeFiles/eco_vision.dir/mainwindow.cpp.obj	ba43098aa105fb95
-3522	3822	7809386184523865	eco_vision.exe	30812becbec0e431
-36	469	7809694186667748	eco_vision_autogen/timestamp	a07454f46fa85f43
-36	469	7809694186667748	eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
-36	469	7809694186667748	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/timestamp	a07454f46fa85f43
-36	469	7809694186667748	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
-472	4978	7809694191015132	CMakeFiles/eco_vision.dir/mainwindow.cpp.obj	ba43098aa105fb95
-4978	6083	7809694236083525	eco_vision.exe	30812becbec0e431
-97	487	7810136842301541	eco_vision_autogen/timestamp	a07454f46fa85f43
-97	487	7810136842301541	eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
-97	487	7810136842301541	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/timestamp	a07454f46fa85f43
-97	487	7810136842301541	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
-490	8918	7810136846231817	CMakeFiles/eco_vision.dir/mainwindow.cpp.obj	ba43098aa105fb95
-8919	9986	7810136930528172	eco_vision.exe	30812becbec0e431
-26	325	7810147132833329	eco_vision_autogen/timestamp	a07454f46fa85f43
-26	325	7810147132833329	eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
-26	325	7810147132833329	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/timestamp	a07454f46fa85f43
-26	325	7810147132833329	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
-327	3815	7810147135835580	CMakeFiles/eco_vision.dir/mainwindow.cpp.obj	ba43098aa105fb95
-3816	4114	7810147170728712	eco_vision.exe	30812becbec0e431
-127	508	7814744754430621	eco_vision_autogen/timestamp	a07454f46fa85f43
-127	508	7814744754430621	eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
-127	508	7814744754430621	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/timestamp	a07454f46fa85f43
-127	508	7814744754430621	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
-516	9958	7814744758377385	CMakeFiles/eco_vision.dir/mainwindow.cpp.obj	ba43098aa105fb95
-9958	10996	7814744852794559	eco_vision.exe	30812becbec0e431
-53	351	7814745952765713	eco_vision_autogen/timestamp	a07454f46fa85f43
-53	351	7814745952765713	eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
-53	351	7814745952765713	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/timestamp	a07454f46fa85f43
-53	351	7814745952765713	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
-352	3801	7814745955761018	CMakeFiles/eco_vision.dir/mainwindow.cpp.obj	ba43098aa105fb95
-3801	4092	7814745990252320	eco_vision.exe	30812becbec0e431
-51	331	7814752706790123	eco_vision_autogen/timestamp	a07454f46fa85f43
-51	331	7814752706790123	eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
-51	331	7814752706790123	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/timestamp	a07454f46fa85f43
-51	331	7814752706790123	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
-333	3823	7814752709696883	CMakeFiles/eco_vision.dir/mainwindow.cpp.obj	ba43098aa105fb95
-3823	4118	7814752744606093	eco_vision.exe	30812becbec0e431
-32	394	7814833629036340	eco_vision_autogen/timestamp	a07454f46fa85f43
-32	394	7814833629036340	eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
-32	394	7814833629036340	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/timestamp	a07454f46fa85f43
-32	394	7814833629036340	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
-397	4705	7814833632692759	CMakeFiles/eco_vision.dir/mainwindow.cpp.obj	ba43098aa105fb95
-4705	5235	7814833675774404	eco_vision.exe	30812becbec0e431
-84	345	7815291882447980	eco_vision_autogen/timestamp	a07454f46fa85f43
-84	345	7815291882447980	eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
-84	345	7815291882447980	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/timestamp	a07454f46fa85f43
-84	345	7815291882447980	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
-346	3553	7815291885134539	CMakeFiles/eco_vision.dir/mainwindow.cpp.obj	ba43098aa105fb95
-3554	4409	7815291917216557	eco_vision.exe	30812becbec0e431
-105	464	7815344271415984	eco_vision_autogen/timestamp	a07454f46fa85f43
-105	464	7815344271415984	eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
-105	464	7815344271415984	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/timestamp	a07454f46fa85f43
-105	464	7815344271415984	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
-466	9351	7815344275086535	CMakeFiles/eco_vision.dir/mainwindow.cpp.obj	ba43098aa105fb95
-9351	10205	7815344363938657	eco_vision.exe	30812becbec0e431
+1131	2012	7837884800329546	CMakeFiles/eco_vision.dir/eco_vision_autogen/EWIEGA46WW/qrc_image.cpp.obj	510ea2c2cc1f7e0d
+395	3069	7840131759029603	CMakeFiles/eco_vision.dir/connection.cpp.obj	84365291f5e8d915
+1334	5502	7846327414196453	CMakeFiles/eco_vision.dir/resource.cpp.obj	e0b4acf5880e805f
+72	1210	7846329182881007	eco_vision_autogen/timestamp	a07454f46fa85f43
+72	1210	7846329182881007	eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
+72	1210	7846329182881007	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/timestamp	a07454f46fa85f43
+72	1210	7846329182881007	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
+1212	4834	7846329184436779	CMakeFiles/eco_vision.dir/eco_vision_autogen/mocs_compilation.cpp.obj	a9da6a5933ac4875
+1219	4975	7846329184506778	CMakeFiles/eco_vision.dir/main.cpp.obj	da439c1cddb20513
+1226	6485	7846329184576759	CMakeFiles/eco_vision.dir/mainwindow.cpp.obj	3b219e36de781808
+6486	7681	7846329237175460	eco_vision.exe	b6da4a4af62693a
+28	1222	7846331984714403	eco_vision_autogen/timestamp	a07454f46fa85f43
+28	1222	7846331984714403	eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
+28	1222	7846331984714403	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/timestamp	a07454f46fa85f43
+28	1222	7846331984714403	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
+1246	4618	7846331986360923	CMakeFiles/eco_vision.dir/resource.cpp.obj	e0b4acf5880e805f
+1224	4807	7846331986143079	CMakeFiles/eco_vision.dir/eco_vision_autogen/mocs_compilation.cpp.obj	a9da6a5933ac4875
+1231	4987	7846331986203091	CMakeFiles/eco_vision.dir/main.cpp.obj	da439c1cddb20513
+1238	6325	7846331986283079	CMakeFiles/eco_vision.dir/mainwindow.cpp.obj	3b219e36de781808
+6325	6758	7846332037147686	eco_vision.exe	b6da4a4af62693a
+97	1254	7846338391483266	eco_vision_autogen/timestamp	a07454f46fa85f43
+97	1254	7846338391483266	eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
+97	1254	7846338391483266	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/timestamp	a07454f46fa85f43
+97	1254	7846338391483266	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
+1278	4814	7846338393240982	CMakeFiles/eco_vision.dir/resource.cpp.obj	e0b4acf5880e805f
+1256	4831	7846338393045819	CMakeFiles/eco_vision.dir/eco_vision_autogen/mocs_compilation.cpp.obj	a9da6a5933ac4875
+1264	5044	7846338393125896	CMakeFiles/eco_vision.dir/main.cpp.obj	da439c1cddb20513
+1270	6339	7846338393195877	CMakeFiles/eco_vision.dir/mainwindow.cpp.obj	3b219e36de781808
+6339	7246	7846338443884653	eco_vision.exe	b6da4a4af62693a
+28	322	7846339819594277	eco_vision_autogen/timestamp	a07454f46fa85f43
+28	322	7846339819594277	eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
+28	322	7846339819594277	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/timestamp	a07454f46fa85f43
+28	322	7846339819594277	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
+324	4896	7846339822581478	CMakeFiles/eco_vision.dir/mainwindow.cpp.obj	3b219e36de781808
+4896	5363	7846339868302785	eco_vision.exe	b6da4a4af62693a
+25	333	7846341520582059	eco_vision_autogen/timestamp	a07454f46fa85f43
+25	333	7846341520582059	eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
+25	333	7846341520582059	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/timestamp	a07454f46fa85f43
+25	333	7846341520582059	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
+342	3404	7846341523752683	CMakeFiles/eco_vision.dir/resource.cpp.obj	e0b4acf5880e805f
+101	1300	7846343875759108	eco_vision_autogen/timestamp	a07454f46fa85f43
+101	1300	7846343875759108	eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
+101	1300	7846343875759108	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/timestamp	a07454f46fa85f43
+101	1300	7846343875759108	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
+1324	4579	7846343877349966	CMakeFiles/eco_vision.dir/resource.cpp.obj	e0b4acf5880e805f
+1302	4980	7846343877135582	CMakeFiles/eco_vision.dir/eco_vision_autogen/mocs_compilation.cpp.obj	a9da6a5933ac4875
+1309	5047	7846343877205604	CMakeFiles/eco_vision.dir/main.cpp.obj	da439c1cddb20513
+1317	6184	7846343877285891	CMakeFiles/eco_vision.dir/mainwindow.cpp.obj	3b219e36de781808
+6185	6594	7846343925965441	eco_vision.exe	b6da4a4af62693a
+27	361	7846421401462478	eco_vision_autogen/timestamp	a07454f46fa85f43
+27	361	7846421401462478	eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
+27	361	7846421401462478	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/timestamp	a07454f46fa85f43
+27	361	7846421401462478	C:/Users/abidi dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/eco_vision_autogen/mocs_compilation.cpp	a07454f46fa85f43
+363	4513	7846421404821847	CMakeFiles/eco_vision.dir/mainwindow.cpp.obj	3b219e36de781808
+4514	4930	7846421446325832	eco_vision.exe	b6da4a4af62693a

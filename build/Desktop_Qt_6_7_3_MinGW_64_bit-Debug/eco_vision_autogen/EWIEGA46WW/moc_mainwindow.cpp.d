@@ -142,6 +142,12 @@ C:/Users/abidi\ dhia/Documents/eco_vision/build/Desktop_Qt_6_7_3_MinGW_64_bit-De
   C:/Qt/6.7.3/mingw_64/include/QtGui/qtransform.h \
   C:/Qt/6.7.3/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.7.3/mingw_64/include/QtGui/qwindowdefs_win.h \
+  C:/Qt/6.7.3/mingw_64/include/QtSql/QSqlQuery \
+  C:/Qt/6.7.3/mingw_64/include/QtSql/qsqldatabase.h \
+  C:/Qt/6.7.3/mingw_64/include/QtSql/qsqlquery.h \
+  C:/Qt/6.7.3/mingw_64/include/QtSql/qtsql-config.h \
+  C:/Qt/6.7.3/mingw_64/include/QtSql/qtsqlexports.h \
+  C:/Qt/6.7.3/mingw_64/include/QtSql/qtsqlglobal.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QMainWindow \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qmainwindow.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qsizepolicy.h \
