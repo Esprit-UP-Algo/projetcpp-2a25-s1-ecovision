@@ -174,7 +174,7 @@ void connection::sendVerificationCodeByEmail(const QString &cin)
     }
 
     // Hardcoded Brevo credentials (already configured in brevo_sender.cpp)
-    QString apiKey = "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";
+    QString apiKey = "api_key_from_env_or_config"; // Replace with actual retrieval from config if needed
     QString senderEmail = "amineshimi90@gmail.com";
 
     BrevoSender *sender = new BrevoSender(apiKey, senderEmail, this);
