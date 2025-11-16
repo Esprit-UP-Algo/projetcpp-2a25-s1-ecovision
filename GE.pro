@@ -3,7 +3,7 @@
 # Qt Project File (.pro)
 #-------------------------------------------------
 
-QT       += core gui widgets sql charts printsupport
+QT       += core gui widgets sql charts printsupport network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -17,6 +17,8 @@ CONFIG += c++17
 SOURCES += \
     connectdb.cpp \
     connection.cpp \
+    brevo_sender.cpp \
+    verifycodedialog.cpp \
     employee.cpp \
     main.cpp \
     mainwindow.cpp
@@ -25,6 +27,8 @@ SOURCES += \
 HEADERS += \
     connectdb.h \
     connection.h \
+    brevo_sender.h \
+    verifycodedialog.h \
     employee.h \
     mainwindow.h
 
