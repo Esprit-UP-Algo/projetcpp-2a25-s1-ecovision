@@ -5,6 +5,8 @@
 /debug/
 /release/
 
+.env
+
 # Qt Creator / Qt files
 *.pro.user
 *.qmake.stash
