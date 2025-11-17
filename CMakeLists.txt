@@ -10,8 +10,8 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # ---- Find Qt packages ----
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Sql)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Sql)
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Sql PrintSupport)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Sql PrintSupport)
 
 # ---- Add project sources ----
 set(PROJECT_SOURCES
@@ -23,6 +23,14 @@ set(PROJECT_SOURCES
     connection.h
     resource.cpp
     resource.h
+    ResourceWindow.cpp
+    ResourceWindow.h
+    ResourceWindow.ui
+    localwindow.h
+    localwindow.cpp
+    localwindow.ui
+    local.h
+    local.cpp
     image.qrc
 )
 
@@ -42,6 +50,7 @@ endif()
 target_link_libraries(eco_vision PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
     Qt${QT_VERSION_MAJOR}::Sql
+    Qt${QT_VERSION_MAJOR}::PrintSupport
 )
 
 # ---- App properties ----

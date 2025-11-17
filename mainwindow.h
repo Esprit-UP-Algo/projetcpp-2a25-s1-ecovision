@@ -2,13 +2,16 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QSqlQuery>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
 }
 QT_END_NAMESPACE
+
+// Forward declarations
+class ResourceWindow;
+class LocalWindow;  // Add this line
 
 class MainWindow : public QMainWindow
 {
@@ -19,22 +22,14 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_btn_ajouter_clicked();
-    void on_btn_supprimer_clicked();
-    void on_btn_modifier_clicked();
-    void on_btn_afficher_clicked();
-    void on_btn_recherche_clicked();
-    void on_tableWidget_cellClicked(int row, int column);
+    void on_pushButton_ressources_clicked();
+    void on_pushButton_2_ressources_clicked();  // Local button
+    void on_pushButton_3_ressources_clicked();
+    void on_pushButton_4_ressources_clicked();
+    void on_pushButton_5_ressources_clicked();
 
 private:
     Ui::MainWindow *ui;
-
-    // Helper methods
-    QString getSelectedType() const;
-    void afficherTable();
-    void clearInputs();
-    bool createResourceTable();
-    bool checkTableExists();
 };
 
 #endif // MAINWINDOW_H

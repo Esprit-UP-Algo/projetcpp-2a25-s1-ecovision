@@ -29,10 +29,10 @@ double Resource::getPrix() const { return prix; }
 
 // --- Setters ---
 void Resource::setId(int id) { this->id = id; }
-void Resource::setType(QString type) { this->type = type; }
-void Resource::setLocalisation(QString localisation) { this->localisation = localisation; }
+void Resource::setType(const QString &type) { this->type = type; }
+void Resource::setLocalisation(const QString &localisation) { this->localisation = localisation; }
 void Resource::setConsommation(double consommation) { this->consommation = consommation; }
-void Resource::setDateMesure(QString date_mesure) { this->date_mesure = date_mesure; }
+void Resource::setDateMesure(const QString &date_mesure) { this->date_mesure = date_mesure; }
 void Resource::setPrix(double prix) { this->prix = prix; }
 
 // --- Ajouter ---

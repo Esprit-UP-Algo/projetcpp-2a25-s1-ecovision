@@ -2,8 +2,6 @@
 #define RESOURCE_H
 
 #include <QString>
-#include <QSqlQuery>
-#include <QSqlQueryModel>
 
 class Resource
 {
@@ -29,10 +27,10 @@ public:
 
     // Setters
     void setId(int);
-    void setType(QString);
-    void setLocalisation(QString);
+    void setType(const QString &);
+    void setLocalisation(const QString &);
     void setConsommation(double);
-    void setDateMesure(QString);
+    void setDateMesure(const QString &);
     void setPrix(double);
 
     // CRUD

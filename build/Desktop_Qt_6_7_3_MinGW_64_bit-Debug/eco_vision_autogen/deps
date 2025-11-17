@@ -3,6 +3,7 @@ eco_vision_autogen/timestamp: \
 	C:/Qt/6.7.3/mingw_64/include/QtCore/q20memory.h \
 	C:/Qt/6.7.3/mingw_64/include/QtCore/q20type_traits.h \
 	C:/Qt/6.7.3/mingw_64/include/QtCore/q23utility.h \
+	C:/Qt/6.7.3/mingw_64/include/QtCore/qabstractitemmodel.h \
 	C:/Qt/6.7.3/mingw_64/include/QtCore/qalgorithms.h \
 	C:/Qt/6.7.3/mingw_64/include/QtCore/qanystringview.h \
 	C:/Qt/6.7.3/mingw_64/include/QtCore/qarraydata.h \
@@ -141,13 +142,15 @@ eco_vision_autogen/timestamp: \
 	C:/Qt/6.7.3/mingw_64/include/QtGui/qtransform.h \
 	C:/Qt/6.7.3/mingw_64/include/QtGui/qwindowdefs.h \
 	C:/Qt/6.7.3/mingw_64/include/QtGui/qwindowdefs_win.h \
-	C:/Qt/6.7.3/mingw_64/include/QtSql/QSqlQuery \
+	C:/Qt/6.7.3/mingw_64/include/QtSql/QSqlQueryModel \
 	C:/Qt/6.7.3/mingw_64/include/QtSql/qsqldatabase.h \
-	C:/Qt/6.7.3/mingw_64/include/QtSql/qsqlquery.h \
+	C:/Qt/6.7.3/mingw_64/include/QtSql/qsqlquerymodel.h \
 	C:/Qt/6.7.3/mingw_64/include/QtSql/qtsql-config.h \
 	C:/Qt/6.7.3/mingw_64/include/QtSql/qtsqlexports.h \
 	C:/Qt/6.7.3/mingw_64/include/QtSql/qtsqlglobal.h \
+	C:/Qt/6.7.3/mingw_64/include/QtWidgets/QDialog \
 	C:/Qt/6.7.3/mingw_64/include/QtWidgets/QMainWindow \
+	C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialog.h \
 	C:/Qt/6.7.3/mingw_64/include/QtWidgets/qmainwindow.h \
 	C:/Qt/6.7.3/mingw_64/include/QtWidgets/qsizepolicy.h \
 	C:/Qt/6.7.3/mingw_64/include/QtWidgets/qtabwidget.h \
@@ -294,6 +297,15 @@ eco_vision_autogen/timestamp: \
 	C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsTargets-relwithdebinfo.cmake \
 	C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsTargets.cmake \
 	C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsVersionlessTargets.cmake \
+	C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportAdditionalTargetInfo.cmake \
+	C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportConfig.cmake \
+	C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportConfigVersion.cmake \
+	C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportConfigVersionImpl.cmake \
+	C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportDependencies.cmake \
+	C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportPlugins.cmake \
+	C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportTargets-relwithdebinfo.cmake \
+	C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportTargets.cmake \
+	C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportVersionlessTargets.cmake \
 	C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6Sql/Qt6QMimerSQLDriverPluginAdditionalTargetInfo.cmake \
 	C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6Sql/Qt6QMimerSQLDriverPluginConfig.cmake \
 	C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6Sql/Qt6QMimerSQLDriverPluginTargets-relwithdebinfo.cmake \
@@ -588,10 +600,18 @@ eco_vision_autogen/timestamp: \
 	C:/Users/abidi\ dhia/Documents/eco_vision/connection.cpp \
 	C:/Users/abidi\ dhia/Documents/eco_vision/connection.h \
 	C:/Users/abidi\ dhia/Documents/eco_vision/image.qrc \
+	C:/Users/abidi\ dhia/Documents/eco_vision/local.cpp \
+	C:/Users/abidi\ dhia/Documents/eco_vision/local.h \
+	C:/Users/abidi\ dhia/Documents/eco_vision/localwindow.cpp \
+	C:/Users/abidi\ dhia/Documents/eco_vision/localwindow.h \
 	C:/Users/abidi\ dhia/Documents/eco_vision/main.cpp \
 	C:/Users/abidi\ dhia/Documents/eco_vision/mainwindow.cpp \
 	C:/Users/abidi\ dhia/Documents/eco_vision/mainwindow.h \
 	C:/Users/abidi\ dhia/Documents/eco_vision/resource.cpp \
 	C:/Users/abidi\ dhia/Documents/eco_vision/resource.h \
+	C:/Users/abidi\ dhia/Documents/eco_vision/resourcewindow.cpp \
+	C:/Users/abidi\ dhia/Documents/eco_vision/resourcewindow.h \
+	C:/Users/abidi\ dhia/Documents/eco_vision/localwindow.ui \
 	C:/Users/abidi\ dhia/Documents/eco_vision/mainwindow.ui \
+	C:/Users/abidi\ dhia/Documents/eco_vision/resourcewindow.ui \
 	C:/Qt/Tools/CMake_64/bin/cmake.exe
