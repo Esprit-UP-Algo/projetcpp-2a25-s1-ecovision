@@ -1,5 +1,7 @@
-QT += core gui widgets sql
+QT += core gui widgets sql charts
+
 CONFIG += c++17
+
 TEMPLATE = app
 TARGET = locall
 
@@ -18,3 +20,6 @@ HEADERS += \
 
 FORMS += \
     mainwindow.ui
+
+RESOURCES += \
+    resources.qrc

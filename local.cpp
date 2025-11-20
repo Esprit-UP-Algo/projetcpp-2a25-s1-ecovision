@@ -72,7 +72,6 @@ bool Local::ensureEmployeExists(const QString& cin, QString* err, QSqlDatabase d
 
 bool Local::insert(QString* err, QSqlDatabase db) const
 {
-    // FK souple
     QString fkErr;
     if (!ensureEmployeExists(cin_proprietaire, &fkErr, db)) {
         if (err) *err = fkErr;
@@ -98,7 +97,7 @@ bool Local::insert(QString* err, QSqlDatabase db) const
     q.bindValue(":nom_prop",   nom_proprietaire);
 
     if (cin_proprietaire.trimmed().isEmpty()) {
-        q.bindValue(":cin_prop", QVariant());   // NULL
+        q.bindValue(":cin_prop", QVariant());
     } else {
         q.bindValue(":cin_prop", cin_proprietaire.trimmed());
     }
