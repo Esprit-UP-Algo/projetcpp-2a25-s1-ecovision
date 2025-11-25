@@ -12,6 +12,22 @@
 #include <QTextDocument>
 #include <QFileDialog>
 #include <QDateTime>
+#include <QPainter>
+#include <QColor>
+#include <QMarginsF>
+#include <QPageLayout>
+#include <QVBoxLayout>
+#include <QLabel>
+#include <QPixmap>
+#include <QPushButton>
+#include "StatWindow.h"
+
+
+// Include real QR code library
+#include "libs/qrcodegen/QrCode.hpp"
+#include <stdexcept>
+using qrcodegen::QrCode;
+using qrcodegen::QrSegment;
 
 ResourceWindow::ResourceWindow(QWidget *parent) :
     QDialog(parent),
@@ -26,11 +42,13 @@ ResourceWindow::ResourceWindow(QWidget *parent) :
     connect(ui->btn_modifier, &QPushButton::clicked, this, &ResourceWindow::on_btn_modifier_clicked);
     connect(ui->btn_afficher, &QPushButton::clicked, this, &ResourceWindow::on_btn_afficher_clicked);
     connect(ui->btn_recherche, &QPushButton::clicked, this, &ResourceWindow::on_btn_recherche_clicked);
+    connect(ui->btn_pdf_avance, &QPushButton::clicked, this, &ResourceWindow::on_btn_pdf_avance_clicked);
 
     // Connect new buttons
     connect(ui->btn_afficher_id, &QPushButton::clicked, this, &ResourceWindow::on_btn_afficher_id_clicked);
     connect(ui->btn_afficher_prix, &QPushButton::clicked, this, &ResourceWindow::on_btn_afficher_prix_clicked);
     connect(ui->pushButton_4, &QPushButton::clicked, this, &ResourceWindow::on_btn_pdf_clicked);
+    
 
     // Connect table click
     connect(ui->tableWidget, &QTableWidget::cellClicked, this, &ResourceWindow::on_tableWidget_cellClicked);
@@ -38,14 +56,21 @@ ResourceWindow::ResourceWindow(QWidget *parent) :
     // Initialize
     createResourceTable();
     afficherTable();
-    afficherStatistiques(); // Auto-load statistics
+    afficherStatistiques();
 }
 
 ResourceWindow::~ResourceWindow()
 {
     delete ui;
 }
-
+void ResourceWindow::on_statsButton_clicked()
+{
+    StatWindow *statsWindow = new StatWindow(this);
+    statsWindow->setAttribute(Qt::WA_DeleteOnClose); // Automatically delete when closed
+    statsWindow->show();
+    statsWindow->raise();
+    statsWindow->activateWindow();
+}
 bool ResourceWindow::createResourceTable()
 {
     QSqlQuery query;
@@ -56,7 +81,8 @@ bool ResourceWindow::createResourceTable()
         "   LOCALISATION VARCHAR2(100), "
         "   CONSOMMATION NUMBER, "
         "   DATE_MESURE DATE, "
-        "   PRIX NUMBER"
+        "   PRIX NUMBER, "
+        "   RESIDENT_ID NUMBER"
         ")";
 
     if (!query.exec(createTableSQL)) {
@@ -110,6 +136,20 @@ void ResourceWindow::afficherTable()
     ui->tableWidget->resizeColumnsToContents();
 }
 
+// FONCTION POUR OBTENIR UN RÉSIDENT PAR DÉFAUT
+int ResourceWindow::getDefaultResidentId()
+{
+    QSqlQuery query;
+    query.prepare("SELECT ID FROM RESIDENT WHERE ROWNUM = 1 ORDER BY ID");
+
+    if (query.exec() && query.next()) {
+        return query.value("ID").toInt();
+    }
+
+    // Si aucun résident n'existe, retourner -1
+    return -1;
+}
+
 void ResourceWindow::on_btn_ajouter_clicked()
 {
     if (ui->lineEdit_id->text().isEmpty() ||
@@ -136,12 +176,22 @@ void ResourceWindow::on_btn_ajouter_clicked()
     else if (type == "Electricite")
         prix = consommation * 0.8;
 
+    // OBTENIR LE RÉSIDENT PAR DÉFAUT
+    int residentId = getDefaultResidentId();
+
+    if (residentId == -1) {
+        QMessageBox::warning(this, "Erreur", "Aucun résident trouvé dans la base de données !");
+        return;
+    }
+
     Resource r(id, type, localisation, consommation, date_mesure, prix);
+    r.setResidentId(residentId); // SET LE RESIDENT_ID
 
     if (r.ajouter()) {
-        QMessageBox::information(this, "Succès", "Ressource ajoutée avec succès !");
+        QMessageBox::information(this, "Succès",
+                                 QString("Ressource ajoutée avec succès !\nAssignée automatiquement au résident ID: %1").arg(residentId));
         afficherTable();
-        afficherStatistiques(); // Update statistics
+        afficherStatistiques();
         clearInputs();
     } else {
         QMessageBox::warning(this, "Erreur", "Échec de l'ajout de la ressource !");
@@ -166,7 +216,7 @@ void ResourceWindow::on_btn_supprimer_clicked()
         if (r.supprimer(id)) {
             QMessageBox::information(this, "Succès", "Ressource supprimée !");
             afficherTable();
-            afficherStatistiques(); // Update statistics
+            afficherStatistiques();
             clearInputs();
         } else {
             QMessageBox::warning(this, "Erreur", "Échec de la suppression ! ID non trouvé.");
@@ -205,7 +255,7 @@ void ResourceWindow::on_btn_modifier_clicked()
     if (r.modifier()) {
         QMessageBox::information(this, "Succès", "Ressource modifiée !");
         afficherTable();
-        afficherStatistiques(); // Update statistics
+        afficherStatistiques();
         clearInputs();
     } else {
         QMessageBox::warning(this, "Erreur", "Échec de la modification ! ID non trouvé.");
@@ -243,7 +293,6 @@ void ResourceWindow::chargerDonneesParID(int id)
     }
 
     if (query.next()) {
-        // Fill the form with found data
         ui->lineEdit_id->setText(query.value("ID").toString());
 
         QString type = query.value("TYPE").toString();
@@ -389,7 +438,6 @@ void ResourceWindow::on_btn_afficher_prix_clicked()
         count++;
     }
 
-    // Add summary
     if (count > 0) {
         ui->listWidget->addItem("");
         ui->listWidget->addItem(QString("=== RÉSUMÉ ==="));
@@ -401,73 +449,45 @@ void ResourceWindow::on_btn_afficher_prix_clicked()
 
 void ResourceWindow::on_btn_pdf_clicked()
 {
-    QString fileName = QFileDialog::getSaveFileName(this, "Enregistrer le PDF",
-                                                    "rapport_ressources.pdf",
-                                                    "PDF Files (*.pdf)");
-
-    if (fileName.isEmpty()) {
-        return;
-    }
-
-    QPrinter printer(QPrinter::HighResolution);
-    printer.setOutputFormat(QPrinter::PdfFormat);
-    printer.setOutputFileName(fileName);
-    printer.setPageSize(QPageSize(QPageSize::A4));
+    QString fileName = QFileDialog::getSaveFileName(this, "Enregistrer le PDF", "rapport_ressources.pdf", "PDF Files (*.pdf)");
+    if (fileName.isEmpty()) return;
 
     QTextDocument document;
-    QString html;
-
-    // HTML header
-    html = "<html><head><style>"
-           "body { font-family: Arial, sans-serif; }"
-           "h1 { color: #2c3e50; text-align: center; }"
-           "h2 { color: #34495e; border-bottom: 1px solid #bdc3c7; }"
-           "table { width: 100%; border-collapse: collapse; margin: 20px 0; }"
-           "th { background-color: #3498db; color: white; padding: 10px; text-align: left; }"
-           "td { padding: 8px; border: 1px solid #ddd; }"
-           ".summary { background-color: #ecf0f1; padding: 15px; margin: 10px 0; }"
-           "</style></head><body>";
+    QString html = "<html><head><style>"
+                   "body { font-family: Arial, sans-serif; margin: 20px; }"
+                   "h1 { color: #2c3e50; text-align: center; font-size: 24px; }"
+                   "h2 { color: #34495e; border-bottom: 1px solid #bdc3c7; margin-top: 20px; }"
+                   "table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 12px; }"
+                   "th { background-color: #3498db; color: white; padding: 10px; text-align: left; }"
+                   "td { padding: 8px; border: 1px solid #ddd; }"
+                   ".summary { background-color: #ecf0f1; padding: 15px; margin: 10px 0; }"
+                   "</style></head><body>";
 
     html += "<h1>Rapport des Ressources</h1>";
     html += "<p>Généré le: " + QDateTime::currentDateTime().toString("dd/MM/yyyy HH:mm") + "</p>";
-
-    // Statistics section
     html += "<h2>Statistiques</h2>";
 
     QSqlQuery statsQuery;
-    statsQuery.prepare("SELECT "
-                       "COUNT(*) as total, "
-                       "SUM(PRIX) as total_prix, "
-                       "AVG(PRIX) as moyenne_prix, "
+    statsQuery.prepare("SELECT COUNT(*) as total, SUM(PRIX) as total_prix, AVG(PRIX) as moyenne_prix, "
                        "SUM(CASE WHEN TYPE = 'Eau' THEN 1 ELSE 0 END) as count_eau, "
-                       "SUM(CASE WHEN TYPE = 'Electricite' THEN 1 ELSE 0 END) as count_elec "
-                       "FROM RESSOURCES");
+                       "SUM(CASE WHEN TYPE = 'Electricite' THEN 1 ELSE 0 END) as count_elec FROM RESSOURCES");
 
     if (statsQuery.exec() && statsQuery.next()) {
-        int total = statsQuery.value("total").toInt();
-        double totalPrix = statsQuery.value("total_prix").toDouble();
-        double moyennePrix = statsQuery.value("moyenne_prix").toDouble();
-        int countEau = statsQuery.value("count_eau").toInt();
-        int countElec = statsQuery.value("count_elec").toInt();
-
         html += "<div class='summary'>";
-        html += "<p><strong>Total des ressources:</strong> " + QString::number(total) + "</p>";
-        html += "<p><strong>Prix total:</strong> " + QString::number(totalPrix, 'f', 2) + " DT</p>";
-        html += "<p><strong>Prix moyen:</strong> " + QString::number(moyennePrix, 'f', 2) + " DT</p>";
-        html += "<p><strong>Ressources Eau:</strong> " + QString::number(countEau) + "</p>";
-        html += "<p><strong>Ressources Électricité:</strong> " + QString::number(countElec) + "</p>";
+        html += "<p><strong>Total des ressources:</strong> " + statsQuery.value("total").toString() + "</p>";
+        html += "<p><strong>Prix total:</strong> " + QString::number(statsQuery.value("total_prix").toDouble(), 'f', 2) + " DT</p>";
+        html += "<p><strong>Prix moyen:</strong> " + QString::number(statsQuery.value("moyenne_prix").toDouble(), 'f', 2) + " DT</p>";
+        html += "<p><strong>Ressources Eau:</strong> " + statsQuery.value("count_eau").toString() + "</p>";
+        html += "<p><strong>Ressources Électricité:</strong> " + statsQuery.value("count_elec").toString() + "</p>";
         html += "</div>";
     }
 
-    // Data table section
     html += "<h2>Liste des Ressources</h2>";
     html += "<table>";
     html += "<tr><th>ID</th><th>Type</th><th>Localisation</th><th>Consommation</th><th>Date</th><th>Prix (DT)</th></tr>";
 
     QSqlQuery dataQuery;
-    dataQuery.prepare("SELECT ID, TYPE, LOCALISATION, CONSOMMATION, "
-                      "TO_CHAR(DATE_MESURE, 'DD/MM/YYYY') AS DATE_MESURE, PRIX "
-                      "FROM RESSOURCES ORDER BY ID");
+    dataQuery.prepare("SELECT ID, TYPE, LOCALISATION, CONSOMMATION, TO_CHAR(DATE_MESURE, 'DD/MM/YYYY') AS DATE_MESURE, PRIX FROM RESSOURCES ORDER BY ID");
 
     if (dataQuery.exec()) {
         while (dataQuery.next()) {
@@ -482,12 +502,16 @@ void ResourceWindow::on_btn_pdf_clicked()
         }
     }
 
-    html += "</table>";
-    html += "</body></html>";
-
+    html += "</table></body></html>";
     document.setHtml(html);
-    document.print(&printer);
 
+    QPrinter printer(QPrinter::HighResolution);
+    printer.setOutputFormat(QPrinter::PdfFormat);
+    printer.setOutputFileName(fileName);
+    printer.setPageSize(QPageSize(QPageSize::A4));
+    printer.setPageMargins(QMarginsF(15, 15, 15, 15), QPageLayout::Millimeter);
+    
+    document.print(&printer);
     QMessageBox::information(this, "Succès", "PDF généré avec succès: " + fileName);
 }
 
@@ -512,7 +536,7 @@ void ResourceWindow::afficherStatistiques()
         return;
     }
 
-    ui->tableWidget_2->setRowCount(0);  // Fixed: use tableWidget_2 for statistics
+    ui->tableWidget_2->setRowCount(0);
     ui->tableWidget_2->setColumnCount(7);
     ui->tableWidget_2->setHorizontalHeaderLabels(
         {"Type", "Nombre", "Consommation Total", "Prix Total", "Prix Moyen", "Prix Min", "Prix Max"}
@@ -531,5 +555,295 @@ void ResourceWindow::afficherStatistiques()
         row++;
     }
 
-    ui->tableWidget_2->resizeColumnsToContents();  // Fixed syntax
+    ui->tableWidget_2->resizeColumnsToContents();
+}
+
+void ResourceWindow::on_btn_pdf_avance_clicked()
+{
+    genererPDFAvance();
+}
+
+void ResourceWindow::genererPDFAvance()
+{
+    // TEST COMPLET de la jointure
+    QString debugInfo = "=== DEBUG FINAL ===\n\n";
+
+    // Test 1: Vérifier la jointure exacte
+    QSqlQuery jointureQuery;
+    jointureQuery.prepare("SELECT "
+                          "r.ID as res_id, "
+                          "r.RESIDENT_ID as res_resident_id, "
+                          "res.ID as resident_id, "
+                          "res.FIRST_NAME as first_name, "
+                          "res.LAST_NAME as last_name "
+                          "FROM RESSOURCES r "
+                          "JOIN RESIDENT res ON r.RESIDENT_ID = res.ID");
+
+    debugInfo += "1. Test jointure complète:\n";
+    if (jointureQuery.exec()) {
+        int count = 0;
+        while (jointureQuery.next()) {
+            count++;
+            debugInfo += QString("   Ligne %1:\n").arg(count);
+            debugInfo += QString("   - Resource ID: %1\n").arg(jointureQuery.value("res_id").toString());
+            debugInfo += QString("   - RESIDENT_ID: %1\n").arg(jointureQuery.value("res_resident_id").toString());
+            debugInfo += QString("   - Resident table ID: %1\n").arg(jointureQuery.value("resident_id").toString());
+            debugInfo += QString("   - Prénom: %1\n").arg(jointureQuery.value("first_name").toString());
+            debugInfo += QString("   - Nom: %1\n").arg(jointureQuery.value("last_name").toString());
+        }
+        debugInfo += QString("   Total: %1 lignes\n\n").arg(count);
+    } else {
+        debugInfo += "   ERREUR: " + jointureQuery.lastError().text() + "\n\n";
+    }
+
+    // Test 2: Vérifier avec des index
+    debugInfo += "2. Test avec index:\n";
+    QSqlQuery indexQuery;
+    indexQuery.prepare("SELECT r.ID, res.FIRST_NAME FROM RESSOURCES r JOIN RESIDENT res ON r.RESIDENT_ID = res.ID");
+
+    if (indexQuery.exec()) {
+        int count = 0;
+        while (indexQuery.next()) {
+            count++;
+            debugInfo += QString("   Ligne %1: ID=%2, Prénom=%3\n")
+                             .arg(count)
+                             .arg(indexQuery.value(0).toString())
+                             .arg(indexQuery.value(1).toString());
+        }
+        debugInfo += QString("   Total: %1 lignes\n").arg(count);
+    } else {
+        debugInfo += "   ERREUR: " + indexQuery.lastError().text() + "\n";
+    }
+
+    QMessageBox::information(this, "Debug Final", debugInfo);
+
+    // Générer le PDF selon le résultat
+    genererPDFGaranti();
+}
+
+void ResourceWindow::genererPDFGaranti()
+{
+    QString fileName = QFileDialog::getSaveFileName(this, "PDF Garanti", "rapport_garanti.pdf", "PDF Files (*.pdf)");
+    if (fileName.isEmpty()) return;
+
+    QString html = "<html><body style='font-family: Arial; margin: 20px;'>";
+    html += "<h1>Rapport Garanti</h1>";
+    html += "<p><strong>Généré le:</strong> " + QDateTime::currentDateTime().toString("dd/MM/yyyy HH:mm") + "</p>";
+
+    // APPROCHE GARANTIE : Récupérer les données SÉPARÉMENT
+    QMap<int, QString> residents;
+    QSqlQuery residentQuery;
+    residentQuery.prepare("SELECT ID, FIRST_NAME, LAST_NAME FROM RESIDENT");
+    if (residentQuery.exec()) {
+        while (residentQuery.next()) {
+            int id = residentQuery.value("ID").toInt();
+            QString nom = residentQuery.value("FIRST_NAME").toString() + " " + residentQuery.value("LAST_NAME").toString();
+            residents[id] = nom;
+        }
+    }
+
+    // Récupérer les ressources
+    QSqlQuery ressourcesQuery;
+    ressourcesQuery.prepare("SELECT ID, RESIDENT_ID, TYPE, LOCALISATION, CONSOMMATION, PRIX FROM RESSOURCES WHERE RESIDENT_ID IS NOT NULL");
+
+    html += "<h2>Données assemblées manuellement</h2>";
+    html += "<table border='1' style='border-collapse: collapse; width: 100%;'>";
+    html += "<tr style='background-color: #3498db; color: white;'>";
+    html += "<th style='padding: 10px;'>Résident</th><th>Type</th><th>Localisation</th><th>Consommation</th><th>Prix</th>";
+    html += "</tr>";
+
+    int count = 0;
+    if (ressourcesQuery.exec()) {
+        while (ressourcesQuery.next()) {
+            count++;
+            int residentId = ressourcesQuery.value("RESIDENT_ID").toInt();
+            QString residentName = residents.value(residentId, "Résident " + QString::number(residentId));
+
+            html += "<tr>";
+            html += "<td style='padding: 8px;'><strong>" + residentName + "</strong></td>";
+            html += "<td style='padding: 8px;'>" + ressourcesQuery.value("TYPE").toString() + "</td>";
+            html += "<td style='padding: 8px;'>" + ressourcesQuery.value("LOCALISATION").toString() + "</td>";
+            html += "<td style='padding: 8px; text-align: center;'>" + ressourcesQuery.value("CONSOMMATION").toString() + "</td>";
+            html += "<td style='padding: 8px; text-align: right;'>" + ressourcesQuery.value("PRIX").toString() + " DT</td>";
+            html += "</tr>";
+        }
+    }
+
+    html += "</table>";
+
+    if (count > 0) {
+        html += "<p style='color: green; font-weight: bold;'>✅ SUCCÈS: " + QString::number(count) + " ressources affichées</p>";
+    } else {
+        html += "<p style='color: red; font-weight: bold;'>❌ ÉCHEC: Aucune donnée affichée</p>";
+        html += "<p>Résidents dans la base: " + QString::number(residents.size()) + "</p>";
+    }
+
+    html += "</body></html>";
+
+    QPrinter printer(QPrinter::HighResolution);
+    printer.setOutputFormat(QPrinter::PdfFormat);
+    printer.setOutputFileName(fileName);
+
+    QTextDocument document;
+    document.setHtml(html);
+    document.print(&printer);
+
+    QMessageBox::information(this, "Résultat Final",
+                             QString("PDF généré\nRessources affichées: %1\nFichier: %2").arg(count).arg(fileName));
+}
+QString ResourceWindow::buildHTMLContent()
+{
+    QString html = "<!DOCTYPE html><html><head><meta charset=\"UTF-8\"><style>"
+                   "body { font-family: Arial, sans-serif; margin: 20px; }"
+                   "h1 { color: #2c3e50; text-align: center; font-size: 24px; margin-bottom: 10px; }"
+                   "table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 12px; }"
+                   "th { background-color: #34495e; color: white; padding: 12px; text-align: left; border: 1px solid #ddd; font-weight: bold; }"
+                   "td { padding: 10px; border: 1px solid #ddd; }"
+                   "tr:nth-child(even) { background-color: #f9f9f9; }"
+                   ".header-info { text-align: center; margin-bottom: 30px; color: #666; }"
+                   ".total { font-weight: bold; margin-top: 30px; font-size: 14px; padding: 10px; background-color: #ecf0f1; }"
+                   ".footer { text-align: center; margin-top: 50px; color: #7f8c8d; font-size: 12px; }"
+                   "</style></head><body>";
+
+    html += "<h1>RAPPORT DES RESSOURCES</h1>";
+    html += "<div class=\"header-info\">";
+    html += "<p><strong>Généré le:</strong> " + QDateTime::currentDateTime().toString("dd/MM/yyyy à HH:mm") + "</p>";
+    html += "</div>";
+
+    html += "<table>";
+    html += "<tr><th>RESIDENT</th><th>TYPE</th><th>LOCALISATION</th><th>CONSOMMATION</th><th>DATE</th><th>PRIX (DT)</th></tr>";
+
+    QSqlQuery query;
+    query.prepare("SELECT r.ID, NVL(res.FIRST_NAME, 'N/A') AS FIRST_NAME, NVL(res.LAST_NAME, 'Non assigné') AS LAST_NAME, "
+                  "r.TYPE, r.LOCALISATION, r.CONSOMMATION, TO_CHAR(r.DATE_MESURE,'DD/MM/YYYY') as date_mesure, r.PRIX "
+                  "FROM RESSOURCES r LEFT JOIN RESIDENT res ON r.RESIDENT_ID = res.ID "
+                  "ORDER BY res.LAST_NAME NULLS LAST, res.FIRST_NAME NULLS LAST, r.ID");
+
+    int total = 0;
+    double prixTotal = 0.0;
+
+    if (query.exec()) {
+        while (query.next()) {
+            QString firstName = query.value("FIRST_NAME").toString();
+            QString lastName = query.value("LAST_NAME").toString();
+            QString residentName = firstName + " " + lastName;
+            double prix = query.value("PRIX").toDouble();
+            prixTotal += prix;
+
+            html += "<tr>";
+            html += "<td>" + residentName + "</td>";
+            html += "<td>" + query.value("TYPE").toString() + "</td>";
+            html += "<td>" + query.value("LOCALISATION").toString() + "</td>";
+            html += "<td>" + query.value("CONSOMMATION").toString() + "</td>";
+            html += "<td>" + query.value("date_mesure").toString() + "</td>";
+            html += "<td>" + QString::number(prix, 'f', 2) + " DT</td>";
+            html += "</tr>";
+            total++;
+        }
+    }
+
+    html += "</table>";
+    html += "<div class=\"total\">Total ressources: " + QString::number(total) + "<br>Coût total: " + QString::number(prixTotal, 'f', 2) + " DT</div>";
+    html += "<div class=\"footer\"><p><strong>Rapport généré par EcoVision System</strong></p></div>";
+    html += "</body></html>";
+
+    return html;
+}
+
+QString ResourceWindow::getQRCodeData()
+{
+    QSqlQuery query;
+    query.prepare("SELECT COUNT(*) as total, SUM(PRIX) as total_prix FROM RESSOURCES");
+    
+    int totalRessources = 0;
+    double totalPrix = 0.0;
+    
+    if (query.exec() && query.next()) {
+        totalRessources = query.value("total").toInt();
+        totalPrix = query.value("total_prix").toDouble();
+    }
+    
+    QString qrData = QString("=== RAPPORT DES RESSOURCES ===\n\n")
+                     + "Date: " + QDateTime::currentDateTime().toString("dd/MM/yyyy HH:mm") + "\n"
+                     + "Total Ressources: " + QString::number(totalRessources) + "\n"
+                     + "Coût Total: " + QString::number(totalPrix, 'f', 2) + " DT\n\n";
+    
+    QSqlQuery dataQuery;
+    dataQuery.prepare("SELECT r.ID, NVL(res.FIRST_NAME, 'N/A') AS FIRST_NAME, NVL(res.LAST_NAME, 'Non assigné') AS LAST_NAME, "
+                      "r.TYPE, r.LOCALISATION, r.CONSOMMATION, TO_CHAR(r.DATE_MESURE,'DD/MM/YYYY') as date_mesure, r.PRIX "
+                      "FROM RESSOURCES r LEFT JOIN RESIDENT res ON r.RESIDENT_ID = res.ID "
+                      "ORDER BY res.LAST_NAME NULLS LAST, res.FIRST_NAME NULLS LAST, r.ID");
+    
+    if (dataQuery.exec()) {
+        qrData += "DÉTAILS:\n";
+        qrData += "--------------------------------\n";
+        while (dataQuery.next()) {
+            qrData += dataQuery.value("FIRST_NAME").toString() + " " + dataQuery.value("LAST_NAME").toString() + " | ";
+            qrData += dataQuery.value("TYPE").toString() + " | ";
+            qrData += dataQuery.value("CONSOMMATION").toString() + " | ";
+            qrData += dataQuery.value("date_mesure").toString() + " | ";
+            qrData += QString::number(dataQuery.value("PRIX").toDouble(), 'f', 2) + " DT\n";
+        }
+    }
+    
+    qrData += "\n=== Généré par EcoVision System ===";
+    return qrData;
+}
+
+void ResourceWindow::showQRCodeDialog()
+{
+    QDialog qrDialog(this);
+    qrDialog.setWindowTitle("Code QR - Rapport des Ressources");
+    qrDialog.setFixedSize(400, 500);
+    
+    QVBoxLayout* layout = new QVBoxLayout(&qrDialog);
+    
+    QLabel* titleLabel = new QLabel("Rapport des Ressources", &qrDialog);
+    titleLabel->setAlignment(Qt::AlignCenter);
+    QFont titleFont("Arial", 14, QFont::Bold);
+    titleLabel->setFont(titleFont);
+    layout->addWidget(titleLabel);
+    
+    QString qrData = getQRCodeData();
+    QrCode qrCode = QrCode::encodeText(qrData.toUtf8().constData(), QrCode::Ecc::MEDIUM);
+    
+    QLabel* qrLabel = new QLabel(&qrDialog);
+    qrLabel->setAlignment(Qt::AlignCenter);
+    
+    const int qrSize = 300;
+    int qrModuleSize = qrCode.getSize();
+    int cellSize = qrSize / qrModuleSize;
+    
+    QPixmap qrPixmap(qrSize, qrSize);
+    qrPixmap.fill(Qt::white);
+    QPainter painter(&qrPixmap);
+    painter.setPen(Qt::NoPen);
+    painter.setBrush(Qt::black);
+    
+    for (int y = 0; y < qrModuleSize; y++) {
+        for (int x = 0; x < qrModuleSize; x++) {
+            if (qrCode.getModule(x, y)) {
+                painter.drawRect(x * cellSize, y * cellSize, cellSize, cellSize);
+            }
+        }
+    }
+    
+    qrLabel->setPixmap(qrPixmap);
+    layout->addWidget(qrLabel);
+    
+    QLabel* infoLabel = new QLabel("Scannez ce code pour voir les détails du rapport", &qrDialog);
+    infoLabel->setAlignment(Qt::AlignCenter);
+    infoLabel->setWordWrap(true);
+    layout->addWidget(infoLabel);
+    
+    QPushButton* closeBtn = new QPushButton("Fermer", &qrDialog);
+    connect(closeBtn, &QPushButton::clicked, &qrDialog, &QDialog::accept);
+    layout->addWidget(closeBtn);
+    
+    qrDialog.exec();
+}
+
+void ResourceWindow::on_btn_qrcode_clicked()
+{
+    showQRCodeDialog();
 }

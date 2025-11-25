@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "ResourceWindow.h"
+#include "resourcewindow.h"
 #include "localwindow.h"
 #include <QMessageBox>
 

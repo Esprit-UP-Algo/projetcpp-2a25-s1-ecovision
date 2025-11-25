@@ -12,10 +12,16 @@ private:
     double consommation;
     QString date_mesure;
     double prix;
+    int residentId;
 
 public:
     Resource();
     Resource(int, QString, QString, double, QString, double);
+    static QVector<double> getConsommationByType();
+    static QVector<double> getMonthlyConsommation(int year = -1);
+    static QVector<double> getConsommationByLocation();
+    static double getTotalConsommation();
+
 
     // Getters
     int getId() const;
@@ -24,6 +30,7 @@ public:
     double getConsommation() const;
     QString getDateMesure() const;
     double getPrix() const;
+    int getResidentId() const;  // CORRIGÉ: retirez getDefaultResidentId()
 
     // Setters
     void setId(int);
@@ -32,6 +39,7 @@ public:
     void setConsommation(double);
     void setDateMesure(const QString &);
     void setPrix(double);
+    void setResidentId(int);  // CORRIGÉ: séparez la déclaration
 
     // CRUD
     bool ajouter();

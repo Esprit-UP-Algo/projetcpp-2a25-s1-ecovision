@@ -73,8 +73,15 @@ void LocalWindow::on_ajouterButton_clicked()
     }
 
     // CORRECTED FIELD MAPPING:
-    int id = ui->l1->text().toInt();           // ID from l1
-    QString type = ui->l1->text();             // Type from l1 (same as ID - this might be wrong)
+    // Get the next available ID
+    QSqlQuery idQuery;
+    idQuery.prepare("SELECT NVL(MAX(ID_LOCAL), 0) + 1 AS NEXT_ID FROM LOCAUX");
+    int id = 1;
+    if (idQuery.exec() && idQuery.next()) {
+        id = idQuery.value("NEXT_ID").toInt();
+    }
+    
+    QString type = ui->l1->text();             // Type from l1 (labeled as "Type de local")
     QString ville = ui->l2->text();            // Ville from l2
     QString adresse = ui->l3->text();          // Adresse from l3
     int dispo = ui->l4->text().toInt();        // Disponibilité from l4
@@ -82,9 +89,6 @@ void LocalWindow::on_ajouterButton_clicked()
     QString cin = ui->l4_5->text();            // CIN from l4_5
     QString tel = ui->l4_3->text();            // Téléphone from l4_3
     double prix = ui->l4_4->text().toDouble(); // Prix from l4_4
-
-    // NOTE: You're using l1 for both ID and Type - this is probably wrong!
-    // You might need to add another field for Type or use a different approach
 
     if (dispo != 0 && dispo != 1) {
         QMessageBox::warning(this, "Erreur", "Disponibilité: 0 ou 1 !");

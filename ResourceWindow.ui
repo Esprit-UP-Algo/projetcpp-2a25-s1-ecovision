@@ -16,8 +16,8 @@
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>60</y>
+     <x>0</x>
+     <y>0</y>
      <width>1001</width>
      <height>721</height>
     </rect>
@@ -676,6 +676,151 @@ font-weight: bold; /* texte en gras */
      </property>
      <property name="text">
       <string>afficher</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_pdf_avance">
+     <property name="geometry">
+      <rect>
+       <x>600</x>
+       <y>0</y>
+       <width>151</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">/* Bouton arrondi avec image comme background */
+#btn_pdf_avance {
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;              /* demi-hauteur → style pill */
+    border: 1px solid rgba(255, 255, 255, 90);
+    background-color: #5cb4f2;        /* couleur par défaut */
+    background-image: url(:/images/icone.png); /* image */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px 20px;       /* image plus petite que le bouton */
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease;
+    padding-left: 10px;                /* espace texte */
+    padding-right: 10px;
+}
+
+/* Hover */
+#btn_pdf_avance:hover {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0,
+                                stop:0 #5cb4f2, stop:1 #ffffff);
+    color: #2f85c9;
+}
+
+/* Pressé */
+#btn_pdf_avance:pressed {
+    background-color: #2f85c9;
+    color: white;
+    transform: scale(0.95);
+}</string>
+     </property>
+     <property name="text">
+      <string>pdf avance</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_qrcode">
+     <property name="geometry">
+      <rect>
+       <x>840</x>
+       <y>180</y>
+       <width>131</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">/* Bouton arrondi avec image comme background */
+#btn_qrcode {
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;              /* demi-hauteur → style pill */
+    border: 1px solid rgba(255, 255, 255, 90);
+    background-color: #5cb4f2;        /* couleur par défaut */
+    background-image: url(:/images/icone.png); /* image */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px 20px;       /* image plus petite que le bouton */
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease;
+    padding-left: 10px;                /* espace texte */
+    padding-right: 10px;
+}
+
+/* Hover */
+#btn_qrcode:hover {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0,
+                                stop:0 #5cb4f2, stop:1 #ffffff);
+    color: #2f85c9;
+}
+
+/* Pressé */
+#btn_qrcode:pressed {
+    background-color: #2f85c9;
+    color: white;
+    transform: scale(0.95);
+}
+</string>
+     </property>
+     <property name="text">
+      <string>qr_code</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="statsButton">
+     <property name="geometry">
+      <rect>
+       <x>840</x>
+       <y>240</y>
+       <width>131</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">/* Bouton arrondi avec image comme background */
+#statsButton {
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;              /* demi-hauteur → style pill */
+    border: 1px solid rgba(255, 255, 255, 90);
+    background-color: #5cb4f2;        /* couleur par défaut */
+    background-image: url(:/images/icone.png); /* image */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px 20px;       /* image plus petite que le bouton */
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease;
+    padding-left: 10px;                /* espace texte */
+    padding-right: 10px;
+}
+
+/* Hover */
+#statsButton:hover {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0,
+                                stop:0 #5cb4f2, stop:1 #ffffff);
+    color: #2f85c9;
+}
+
+/* Pressé */
+#statsButton:pressed {
+    background-color: #2f85c9;
+    color: white;
+    transform: scale(0.95);
+}</string>
+     </property>
+     <property name="text">
+      <string>statsi</string>
      </property>
     </widget>
    </widget>

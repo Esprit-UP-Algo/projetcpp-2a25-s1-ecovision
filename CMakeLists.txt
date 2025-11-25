@@ -32,6 +32,11 @@ set(PROJECT_SOURCES
     local.h
     local.cpp
     image.qrc
+    libs/qrcodegen/QrCode.cpp
+    libs/qrcodegen/QrCode.hpp
+    StatWindow.cpp
+    StatWindow.h
+
 )
 
 # ---- Create the executable ----
@@ -39,6 +44,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(eco_vision
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+
     )
 else()
     add_executable(eco_vision

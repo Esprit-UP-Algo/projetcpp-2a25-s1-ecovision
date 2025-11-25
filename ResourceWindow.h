@@ -26,6 +26,11 @@ private slots:
     void on_btn_afficher_id_clicked();
     void on_btn_afficher_prix_clicked();
     void on_btn_pdf_clicked();
+    void on_btn_pdf_avance_clicked();
+    void on_btn_qrcode_clicked();
+    void on_statsButton_clicked();
+
+
 
 private:
     Ui::Dialog *ui;  // Changed from ResourceWindow to Dialog
@@ -35,6 +40,14 @@ private:
     void clearInputs();
     void chargerDonneesParID(int id);
     void afficherStatistiques();
+    int getDefaultResidentId();
+    void genererPDFAvance();
+    QString buildHTMLContent();
+    QString getQRCodeData();
+    void showQRCodeDialog();
+    void genererPDFGaranti();
+
+
 };
 
 #endif // RESOURCEWINDOW_H
