@@ -1,0 +1,84 @@
+# Gitignore for Qt/C++ project (Qt Creator / MinGW / Windows)
+
+# Build directories
+/build/
+/debug/
+/release/
+
+.env
+
+# Qt Creator / Qt files
+*.pro.user
+*.qmake.stash
+*.pro.user.*
+ui_*.h
+moc_*.cpp
+
+# Generated object and executables
+*.o
+*.obj
+*.exe
+*.out
+*.app
+*.dll
+*.so
+*.dylib
+object_script.*
+
+# Makefiles and build artifacts
+Makefile
+Makefile.Debug
+Makefile.Release
+
+# IDE/editor files
+.vscode/
+.idea/
+.vs/
+*.suo
+*.user
+*.user.*
+*.log
+
+# Visual Studio
+*.vcxproj*
+*.sln
+*.vcxproj.user
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+
+# OneDrive/Temp files
+~$*
+~*.tmp
+
+# Backup files
+*~
+*.swp
+
+# Others
+.gdb_history
+.cache/
+.clangd/
+
+# Additional Qt / build patterns
+build*/
+*/build*/
+*.pdb
+*.lib
+*.exp
+*.ilk
+*.manifest
+*.dmp
+*.tmp
+*.bak
+qrc_*/
+*.qm
+
+# Keep project file tracked
+!GE.pro
