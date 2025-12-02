@@ -15,12 +15,12 @@ SMSManager::SMSManager(QObject *parent)
     networkManager(new QNetworkAccessManager(this))
 {
     // Tes vrais identifiants Twilio
-    m_accountSid = "ACe95333f80bf90ba07bc67a49745f41f5";
-    m_authToken  = "e542ca21165558fc10cea34e37bc4f26";
+   // m_accountSid = "ACe95333f80bf90ba07bc67a49745f41f5";//
+   // m_authToken  = "e542ca21165558fc10cea34e37bc4f26";//
 
     // Numéro Twilio SANS espaces, format E.164 :
     // +1 510 544 8153  ->  +15105448153
-    m_fromNumber = "+15105448153";
+   // m_fromNumber = "+15105448153";//
 
     connect(networkManager,
             QOverload<QNetworkReply *>::of(&QNetworkAccessManager::finished),
