@@ -1,0 +1,11 @@
+release/main.o
+release/mainwindow.o
+release/connection.o
+release/local.o
+release/notificationwidget.o
+release/reclamation.o
+release/smsmanager.o
+release/qrc_resources.o
+release/moc_mainwindow.o
+release/moc_notificationwidget.o
+release/moc_smsmanager.o

@@ -1,0 +1,11 @@
+debug/main.o
+debug/mainwindow.o
+debug/connection.o
+debug/local.o
+debug/notificationwidget.o
+debug/reclamation.o
+debug/smsmanager.o
+debug/qrc_resources.o
+debug/moc_mainwindow.o
+debug/moc_notificationwidget.o
+debug/moc_smsmanager.o
