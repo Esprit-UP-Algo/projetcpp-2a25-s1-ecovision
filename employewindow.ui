@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1377</width>
+    <height>856</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QFrame" name="rightContent">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>50</y>
+     <width>1191</width>
+     <height>761</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+QFrame {
+    background-color: white;
+    border-radius: 10px;
+    margin: 5px;
+}
+QLabel {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+     </string>
+   </property>
+   <widget class="QLabel" name="titleLabel">
+    <property name="geometry">
+     <rect>
+      <x>14</x>
+      <y>14</y>
+      <width>233</width>
+      <height>62</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+font-size: 24px;
+font-weight: bold;
+color: #2f85c9;
+padding: 10px;
+      </string>
+    </property>
+    <property name="text">
+     <string>Gestion Employée</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QTabWidget" name="CRUD_Stat">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>70</y>
+      <width>1061</width>
+      <height>681</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="tabCRUD">
+     <attribute name="title">
+      <string>Inforamtions</string>
+     </attribute>
+     <widget class="QPushButton" name="btnAjouter">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>360</y>
+        <width>491</width>
+        <height>36</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">/* État normal (non sélectionné) : blanc */
+QPushButton {
+    background-color: #ffffff;
+    color: #3C9ED9; /* texte bleu ciel */
+    border: 1px solid rgba(99, 184, 227, 0.9);
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Survol en état non sélectionné */
+QPushButton:hover {
+    background-color: #F2F9FE; /* léger bleu très clair */
+}
+
+/* Appuyé (momentané) */
+QPushButton:pressed {
+    background-color: #5CAFE3;
+    color: white;
+}
+
+/* État sélectionné (si setCheckable(true)) */
+QPushButton:checked {
+    background-color: #87CEEB; /* bleu ciel */
+    color: white;
+    border-color: #5CAFE3;
+}
+
+/* Survol quand déjà sélectionné */
+QPushButton:checked:hover {
+    background-color: #5CAFE3; /* un peu plus foncé au survol */
+    color: white;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>Ajouter</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnModifier">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>400</y>
+        <width>491</width>
+        <height>36</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">/* État normal (non sélectionné) : blanc */
+QPushButton {
+    background-color: #ffffff;
+    color: #3C9ED9; /* texte bleu ciel */
+    border: 1px solid rgba(99, 184, 227, 0.9);
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Survol en état non sélectionné */
+QPushButton:hover {
+    background-color: #F2F9FE; /* léger bleu très clair */
+}
+
+/* Appuyé (momentané) */
+QPushButton:pressed {
+    background-color: #5CAFE3;
+    color: white;
+}
+
+/* État sélectionné (si setCheckable(true)) */
+QPushButton:checked {
+    background-color: #87CEEB; /* bleu ciel */
+    color: white;
+    border-color: #5CAFE3;
+}
+
+/* Survol quand déjà sélectionné */
+QPushButton:checked:hover {
+    background-color: #5CAFE3; /* un peu plus foncé au survol */
+    color: white;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>Modifier</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnSupprimer">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>520</y>
+        <width>491</width>
+        <height>36</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">/* État normal (non sélectionné) : blanc */
+QPushButton {
+    background-color: #ffffff;
+    color: #3C9ED9; /* texte bleu ciel */
+    border: 1px solid rgba(99, 184, 227, 0.9);
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Survol en état non sélectionné */
+QPushButton:hover {
+    background-color: #F2F9FE; /* léger bleu très clair */
+}
+
+/* Appuyé (momentané) */
+QPushButton:pressed {
+    background-color: #5CAFE3;
+    color: white;
+}
+
+/* État sélectionné (si setCheckable(true)) */
+QPushButton:checked {
+    background-color: #87CEEB; /* bleu ciel */
+    color: white;
+    border-color: #5CAFE3;
+}
+
+/* Survol quand déjà sélectionné */
+QPushButton:checked:hover {
+    background-color: #5CAFE3; /* un peu plus foncé au survol */
+    color: white;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>Supprimer</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="nom">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>30</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>nom:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="telephone_2">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>190</y>
+        <width>331</width>
+        <height>26</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="adresse">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>150</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>adresse:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="cin">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>110</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>cin:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="telephone">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>190</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>telephone:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="prenom">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>70</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>prenom:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="poste">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>230</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>poste</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="cin_2">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>110</y>
+        <width>331</width>
+        <height>26</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="adresse_2">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>150</y>
+        <width>331</width>
+        <height>26</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="prenom_2">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>70</y>
+        <width>331</width>
+        <height>26</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="nom_2">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>30</y>
+        <width>331</width>
+        <height>26</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="metier_2">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>230</y>
+        <width>331</width>
+        <height>26</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btntrier">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>480</y>
+        <width>491</width>
+        <height>36</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">/* État normal (non sélectionné) : blanc */
+QPushButton {
+    background-color: #ffffff;
+    color: #3C9ED9; /* texte bleu ciel */
+    border: 1px solid rgba(99, 184, 227, 0.9);
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Survol en état non sélectionné */
+QPushButton:hover {
+    background-color: #F2F9FE; /* léger bleu très clair */
+}
+
+/* Appuyé (momentané) */
+QPushButton:pressed {
+    background-color: #5CAFE3;
+    color: white;
+}
+
+/* État sélectionné (si setCheckable(true)) */
+QPushButton:checked {
+    background-color: #87CEEB; /* bleu ciel */
+    color: white;
+    border-color: #5CAFE3;
+}
+
+/* Survol quand déjà sélectionné */
+QPushButton:checked:hover {
+    background-color: #5CAFE3; /* un peu plus foncé au survol */
+    color: white;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>trier</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget">
+      <property name="geometry">
+       <rect>
+        <x>-10</x>
+        <y>90</y>
+        <width>561</width>
+        <height>441</height>
+       </rect>
+      </property>
+      <column>
+       <property name="text">
+        <string>CIN</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>NOM</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>PRENOM</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>TELEPHONE</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>ADRESSE</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>POSTE</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>PRESENCE</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>SALAIRE</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QLineEdit" name="cin_4">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>50</y>
+        <width>291</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:  #3C9ED9;</string>
+      </property>
+      <property name="placeholderText">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="cin_3">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>50</y>
+        <width>231</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Saisir le cin à chercher : </string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="presence">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>270</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>presence:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="presence_2">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>270</y>
+        <width>331</width>
+        <height>28</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnpdf">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>440</y>
+        <width>491</width>
+        <height>36</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">/* État normal (non sélectionné) : blanc */
+QPushButton {
+    background-color: #ffffff;
+    color: #3C9ED9; /* texte bleu ciel */
+    border: 1px solid rgba(99, 184, 227, 0.9);
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Survol en état non sélectionné */
+QPushButton:hover {
+    background-color: #F2F9FE; /* léger bleu très clair */
+}
+
+/* Appuyé (momentané) */
+QPushButton:pressed {
+    background-color: #5CAFE3;
+    color: white;
+}
+
+/* État sélectionné (si setCheckable(true)) */
+QPushButton:checked {
+    background-color: #87CEEB; /* bleu ciel */
+    color: white;
+    border-color: #5CAFE3;
+}
+
+/* Survol quand déjà sélectionné */
+QPushButton:checked:hover {
+    background-color: #5CAFE3; /* un peu plus foncé au survol */
+    color: white;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>pdf</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="salaire">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>309</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>salaire:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="salaire_2">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>310</y>
+        <width>171</width>
+        <height>24</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tabStat">
+     <attribute name="title">
+      <string>Statistiques</string>
+     </attribute>
+     <widget class="QChartView" name="stat" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1041</width>
+        <height>431</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QChartView</class>
+   <extends>QWidget</extends>
+   <header>QtCharts/QChartView</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

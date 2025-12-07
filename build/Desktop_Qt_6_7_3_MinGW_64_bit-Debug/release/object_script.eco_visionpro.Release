@@ -1,0 +1,13 @@
+release/connection.o
+release/employee.o
+release/employewindow.o
+release/main.o
+release/mainwindow.o
+release/resource.o
+release/resourcewindow.o
+release/statwindow.o
+release/QrCode.o
+release/moc_employewindow.o
+release/moc_mainwindow.o
+release/moc_resourcewindow.o
+release/moc_statwindow.o

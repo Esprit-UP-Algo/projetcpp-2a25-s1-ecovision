@@ -1,0 +1,13 @@
+debug/connection.o
+debug/employee.o
+debug/employewindow.o
+debug/main.o
+debug/mainwindow.o
+debug/resource.o
+debug/resourcewindow.o
+debug/statwindow.o
+debug/QrCode.o
+debug/moc_employewindow.o
+debug/moc_mainwindow.o
+debug/moc_resourcewindow.o
+debug/moc_statwindow.o
