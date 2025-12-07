@@ -1,0 +1,11 @@
+release/arduino.o
+release/backup.o
+release/connection.o
+release/import.o
+release/main.o
+release/mainwindow.o
+release/parking.o
+release/qrcodegen.o
+release/moc_backup.o
+release/moc_import.o
+release/moc_mainwindow.o

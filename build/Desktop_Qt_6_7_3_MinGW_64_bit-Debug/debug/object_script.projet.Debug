@@ -1,0 +1,11 @@
+debug/arduino.o
+debug/backup.o
+debug/connection.o
+debug/import.o
+debug/main.o
+debug/mainwindow.o
+debug/parking.o
+debug/qrcodegen.o
+debug/moc_backup.o
+debug/moc_import.o
+debug/moc_mainwindow.o
