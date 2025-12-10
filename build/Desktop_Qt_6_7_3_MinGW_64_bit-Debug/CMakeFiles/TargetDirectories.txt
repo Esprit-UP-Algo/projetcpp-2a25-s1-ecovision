@@ -1,0 +1,9 @@
+C:/Users/kingd/Desktop/Work/2eme/Eco Vision/ECO_VISION/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/ECO_VISION.dir
+C:/Users/kingd/Desktop/Work/2eme/Eco Vision/ECO_VISION/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
+C:/Users/kingd/Desktop/Work/2eme/Eco Vision/ECO_VISION/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/kingd/Desktop/Work/2eme/Eco Vision/ECO_VISION/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/list_install_components.dir
+C:/Users/kingd/Desktop/Work/2eme/Eco Vision/ECO_VISION/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/install.dir
+C:/Users/kingd/Desktop/Work/2eme/Eco Vision/ECO_VISION/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/install/local.dir
+C:/Users/kingd/Desktop/Work/2eme/Eco Vision/ECO_VISION/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/install/strip.dir
+C:/Users/kingd/Desktop/Work/2eme/Eco Vision/ECO_VISION/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/ECO_VISION_autogen_timestamp_deps.dir
+C:/Users/kingd/Desktop/Work/2eme/Eco Vision/ECO_VISION/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/ECO_VISION_autogen.dir

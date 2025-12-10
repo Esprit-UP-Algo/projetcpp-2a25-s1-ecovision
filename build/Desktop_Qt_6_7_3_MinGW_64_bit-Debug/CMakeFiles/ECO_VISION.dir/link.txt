@@ -1,0 +1,3 @@
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\ECO_VISION.dir/objects.a
+C:\Qt\Tools\mingw1120_64\bin\ar.exe qc CMakeFiles\ECO_VISION.dir/objects.a @CMakeFiles\ECO_VISION.dir\objects1.rsp
+C:\Qt\Tools\mingw1120_64\bin\g++.exe -DQT_QML_DEBUG -g -mwindows -Wl,--whole-archive CMakeFiles\ECO_VISION.dir/objects.a -Wl,--no-whole-archive -o ECO_VISION.exe -Wl,--out-implib,libECO_VISION.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\ECO_VISION.dir\linkLibs.rsp
